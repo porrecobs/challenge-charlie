@@ -1,4 +1,4 @@
-export const getItem = (key) => {
+export function getItem(key) {
   if (!key || typeof(key) != 'string') {
     return;
   }
@@ -6,7 +6,7 @@ export const getItem = (key) => {
   return JSON.parse(localStorage.getItem(key));
 }
 
-export const setItem = (key, value) => {
+export function setItem(key, value) {
   if (!key || typeof(key) != 'string') {
     return;
   }
@@ -14,7 +14,7 @@ export const setItem = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value ?? null));
 }
 
-export const removeItem = (key) => {
+export function removeItem(key) {
   if (!key || typeof(key) != 'string') {
     return;
   }
@@ -22,6 +22,6 @@ export const removeItem = (key) => {
   localStorage.removeItem(key);
 }
 
-export const clearStorage = () => {
+export function clearStorage() {
   localStorage.clear();
 }
