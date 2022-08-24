@@ -4,7 +4,7 @@ import { getItem, setItem } from "./localStorageService";
 const baseUrl = "http://localhost:8000/";
 
 export const getImageFromBing = async () => {
-  const storage = await getItem("background");
+  const storage = getItem("background");
   
   if (storage) {
     const today = new Date();

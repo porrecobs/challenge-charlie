@@ -18,7 +18,7 @@ const mockedBackgroundReturn = {
 
 describe("backgroundImageService", () => {
     test("fetch if localStorage is empty", () => {
-        localStorageService.getItem.mockResolvedValue(null);
+        localStorageService.getItem.mockReturnValue(null);
         axios.get.mockResolvedValue(mockedBackgroundReturn);
 
         return getImageFromBing().then((data) => {
@@ -27,7 +27,7 @@ describe("backgroundImageService", () => {
     });
 
     test("fetch if localStorage endDate has already gone", () => {
-        localStorageService.getItem.mockResolvedValue(
+        localStorageService.getItem.mockReturnValue(
             JSON.stringify(
                 Object.assign({}, mockedBackgroundReturn.data, {
                     endDate: "19990101",
@@ -47,7 +47,7 @@ describe("backgroundImageService", () => {
     });
 
     test("fetch if localStorage endDate is not over", () => {
-        localStorageService.getItem.mockResolvedValue(
+        localStorageService.getItem.mockReturnValue(
             JSON.stringify(mockedBackgroundReturn.data)
         );
 
